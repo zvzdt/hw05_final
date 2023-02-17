@@ -250,7 +250,7 @@ class PostPagesTests(TestCase):
         self.assertNotEqual(response_3.content, response_2.content)
 
     def test_user_can_follow_author(self):
-        """Авторизованный пользователь может 
+        """Авторизованный пользователь может
            подписываться и отписываться"""
         self.authorized_client.get(reverse(
             'posts:profile_follow', kwargs={'username': self.user2}))
