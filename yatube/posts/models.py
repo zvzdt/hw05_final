@@ -42,12 +42,14 @@ class Post(models.Model):
         upload_to='posts/',
         blank=True
     )
+
     class Meta:
         ordering = ('-pub_date',)
         default_related_name = 'posts'
 
     def __str__(self):
         return self.text[:15]
+
 
 class Comment(models.Model):
     post = models.ForeignKey(
@@ -62,6 +64,7 @@ class Comment(models.Model):
     )
     text = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
+
 
 class Follow(models.Model):
     user = models.ForeignKey(

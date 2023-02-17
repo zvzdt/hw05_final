@@ -13,6 +13,7 @@ class PostForm(forms.ModelForm):
             'group': 'выберете подходящую группу или оставьте пустым'
         }
 
+
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
