@@ -94,6 +94,9 @@ class PostFormTests(TestCase):
             data=form_data,
             follow=True
         )
+        old_group_response = self.authorized_client.get(
+            reverse('posts:group_list', args=(self.group.slug,))
+        )
         self.assertRedirects(response, (reverse(
             'posts:post_detail', kwargs={'post_id': self.post.pk}))
         )
@@ -103,3 +106,6 @@ class PostFormTests(TestCase):
         self.assertEqual(edited_post.text, form_data['text'])
         self.assertEqual(edited_post.author, self.user)
         self.assertEqual(edited_post.group.pk, form_data['group'])
+        self.assertEqual(
+            old_group_response.context['page_obj'].paginator.count, 0)
+

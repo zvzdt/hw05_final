@@ -16,7 +16,7 @@ class Group(models.Model):
 
 class Post(models.Model):
     text = models.TextField(
-        'Текст поста',
+        verbose_name='Текст поста',
         help_text='Введите текст поста'
     )
     pub_date = models.DateTimeField(
@@ -38,7 +38,7 @@ class Post(models.Model):
         help_text='Группа, к которой будет относиться пост'
     )
     image = models.ImageField(
-        'Картинка',
+        verbose_name='Картинка',
         upload_to='posts/',
         blank=True
     )

@@ -37,6 +37,7 @@ class PostURLTests(TestCase):
             (f'/group/{self.group.slug}/', self.guest_client, HTTPStatus.OK),
             (f'/posts/{self.post.pk}/', self.guest_client, HTTPStatus.OK),
             ('/create/', self.authorized_client, HTTPStatus.FOUND),
+            ('/create/', self.guest_client, HTTPStatus.FOUND),
             (f'/posts/{self.post.pk}/edit/',
              self.guest_client, HTTPStatus.FOUND),
             (f'/posts/{self.post.pk}/edit/',
