@@ -108,4 +108,3 @@ class PostFormTests(TestCase):
         self.assertEqual(edited_post.group.pk, form_data['group'])
         self.assertEqual(
             old_group_response.context['page_obj'].paginator.count, 0)
-
